@@ -319,7 +319,7 @@ def get_stock_recent_data(stock, country, as_json=False, order='ascending', inte
             stock_high = float(info[3].replace(',', ''))
             stock_low = float(info[4].replace(',', ''))
 
-            stock_volume = int(info[5])
+            stock_volume = int(info[5]) if info[5] else None
 
             result.insert(len(result),
                           Data(stock_date, stock_open, stock_high, stock_low,
@@ -563,7 +563,7 @@ def get_stock_historical_data(stock, country, from_date, to_date, id_: int, name
                     stock_high = float(info[3].replace(',', ''))
                     stock_low = float(info[4].replace(',', ''))
 
-                    stock_volume = int(info[5])
+                    stock_volume = int(info[5]) if info[5] else None
 
                     result.insert(len(result),
                                   Data(stock_date, stock_open, stock_high, stock_low,
